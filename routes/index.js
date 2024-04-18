@@ -1,12 +1,19 @@
 var express = require('express');
 var router = express.Router();
 
-//hostname:port/users
+
 router.use('/users', require('./users'));
+router.use('/auth', require('./auth'));
 //hostname:port/api/v1/books
-router.use('/api/v1/books', require('./books'));
-router.use('/api/v1/authors', require('./authors'));
-// router.get('/', function(req, res, next) {
-//   res.render('index', { title: 'Express' });
-// });
+
+
+router.use('/product', require('./product'));
+router.use('/category', require('./category'));
+router.use('/sanpham', require('./sanpham'));
+router.use('/order', require('./order'));
+router.use('/invoice', require('./invoiceitem'));
+
+
+
+
 module.exports = router;

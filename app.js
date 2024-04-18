@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
 
+const cors = require('cors');
 
 
 var app = express();
@@ -21,6 +22,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var indexRouter = require('./routes/index');
 //hostname:port/
+const corsOptions = {
+  origin:'*',
+  credentials:true,
+  optionSuccessStatus:200,
+
+}
+app.use(cors(corsOptions));
 
 mongoose.connect("mongodb://127.0.0.1:27017/Nodejs-S5")
 .then(function () {
